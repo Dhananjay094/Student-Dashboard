@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Student Dashboard</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f5f6fa;
+        }
+        .login-container {
+            background: #fff;
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+        .login-container img {
+            width: 60px;
+            margin-bottom: 1rem;
+        }
+        .login-container h2 {
+            margin-bottom: 1.5rem;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 0.7rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 0.7rem;
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .login-container .error {
+            color: #d32f2f;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="./images/logo.png" alt="Logo">
+        <h2>Student Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Student ID or Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <div class="error" id="errorMsg"></div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+
+            // Simple demo validation (replace with real authentication)
+            if ((username === "alex" || username === "12102030" || username === "unknown@gmail.com") && password === "password") {
+                // Save session info if needed
+                window.location.href = "index.html";
+            } else {
+                errorMsg.textContent = "Invalid username or password.";
+            }
+        });
+    </script>
+</body>
+</html>
